@@ -1,0 +1,55 @@
+.mainContainer{
+    height: 1000px;
+}
+.titleContainer {
+    background-image: url("../assets/images/title.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.titleContent {
+    position: absolute;
+    top: 50%;
+    left: 39%;
+    transform: translate(-0%, -50%);
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    animation: slideDown 2s ease forwards;
+    opacity: 0;
+}
+
+h1{
+    font-size: 2.8rem;
+}
+h5{
+    font-size: 1.2rem;
+}
+
+input[type="text"] {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+input.title{
+    font-size: 2.8rem;
+}
+
+input.subTitle{
+    font-size: 1.2rem;
+}

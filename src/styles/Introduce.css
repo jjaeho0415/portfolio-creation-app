@@ -1,0 +1,40 @@
+.IntroduceContainer{
+    padding-left: 30px;
+}
+
+.profileSection {
+    margin-top: 20px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.profileSection {
+    display: flex;
+}
+
+.profileImage {
+    margin-right: 40px;
+    padding-right: 30px;  
+}
+
+.profileImage img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+.introduceText {
+    flex: 1;
+    height: 350px;
+    line-height: 1.5;
+    height: 350px;
+    overflow-y: auto;
+    font-size: 17px;
+}
+
+textarea{
+    font-size: 17px;
+    line-height: 1.5;
+}

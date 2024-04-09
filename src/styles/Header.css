@@ -1,0 +1,39 @@
+.header{
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+.header.isScrolled{
+    color: #222222;
+    background-color: #ffffff;
+    border-bottom: solid 1px #ccc;
+}
+.headerBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+.headerRight{
+    display: flex;
+    float: right;
+    margin: 0;
+    padding: 0;
+    column-gap: 8px;
+    font-size: 0.85rem;
+}
+.headerCenter{
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+
+}
+

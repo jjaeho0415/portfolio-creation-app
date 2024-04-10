@@ -10,6 +10,7 @@ const Introduce = ({ isLogin }) => {
   );
   const fileInputRef = useRef(null);
   const [isEdit, setIsEdit] = useState(false);
+  const textAreaRef = useRef(null);
 
   useEffect(() => {
     const storedImage = localStorage.getItem("profileImage");
@@ -24,6 +25,14 @@ const Introduce = ({ isLogin }) => {
       setIntroduceText(storedText);
     }
   }, []);
+
+  useEffect(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.style.height = "auto";
+      textAreaRef.current.style.height =
+        textAreaRef.current.scrollHeight + "px";
+    }
+  }, [introduceText]);
 
   const handleEditToggle = () => {
     setIsEdit(true);
@@ -81,13 +90,17 @@ const Introduce = ({ isLogin }) => {
               {isEdit ? (
                 <>
                   <textarea
+                    ref={textAreaRef}
                     value={introduceText}
                     onChange={handleTextChange}
                     style={{ width: "100%", height: "91%" }}
+                    rows={13}
                   ></textarea>
-                  <button className='saveButton' onClick={handleSave}>
-                    저장
-                  </button>
+                  <div className='saveButtonContainer'>
+                    <button className='saveButton' onClick={handleSave}>
+                      저장
+                    </button>
+                  </div>
                 </>
               ) : (
                 <div className='introduceText' onClick={handleEditToggle}>

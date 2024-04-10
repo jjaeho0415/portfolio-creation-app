@@ -36,7 +36,9 @@ const Home = ({ userName, setUserName, isLogin, setIsLogin }) => {
             </button>
           </div>
           <div className='signUpButtonContainer'>
-            <button>회원가입</button>
+            <button style={{ display: isLogin ? "none" : "block" }}>
+              회원가입
+            </button>
           </div>
           <div className='makePortfolioButtonContainer'>
             <button onClick={goToPortfolio}> 포트폴리오 작성하기</button>

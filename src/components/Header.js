@@ -38,10 +38,7 @@ const Header = ({ userName, setUserName, isLogin, setIsLogin }) => {
     <header className={isScrolled ? "header isScrolled" : "header"}>
       <div className='headerBar'>
         <div className='headerLeft'>
-          <div
-            className='myPage'
-            style={{ display: isLogin ? "block" : "none" }}
-          >
+          <div className='goHome'>
             <Link to='/'>Home</Link>
           </div>
         </div>

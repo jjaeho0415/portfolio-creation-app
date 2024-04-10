@@ -2,19 +2,19 @@ import React from "react";
 import Title from "./Title";
 import Introduce from "./Introduce";
 import Project from "./Project";
-import "../styles/Main.css"; // Main 컴포넌트에 대한 CSS 파일 import
+import "../styles/Main.css";
 
-const Main = ({ isLogin }) => {
+const Main = () => {
   return (
     <div className='mainContainer'>
       <article className='article'>
-        <Title isLogin={isLogin} />
+        <Title />
       </article>
       <article className='article'>
-        <Introduce isLogin={isLogin} />
+        <Introduce />
       </article>
       <article className='article'>
-        <Project isLogin={isLogin} />
+        <Project />
       </article>
     </div>
   );

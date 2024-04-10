@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import UserContext from "../contexts/UserContext";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import IsLoginContext from "../contexts/IsLoginContext";
 
-const Header = ({ isLogin, setIsLogin }) => {
-  const { userName } = useContext(UserContext);
+const Header = ({ userName, setUserName }) => {
+  console.log("dhkTdma");
+  const [isLogin, setIsLogin] = useContext(IsLoginContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -12,6 +13,12 @@ const Header = ({ isLogin, setIsLogin }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  });
+
+  useEffect(() => {
+    if (isLogin) {
+      setUserName("정재호");
+    }
   });
 
   const handleSignIn = () => {
@@ -38,11 +45,11 @@ const Header = ({ isLogin, setIsLogin }) => {
             className='myPage'
             style={{ display: isLogin ? "block" : "none" }}
           >
-            <Link to='/myPages'>마이페이지</Link>
+            <Link to='/'>Home</Link>
           </div>
         </div>
         <div className='headerCenter'>
-          <Link to='/'>
+          <Link to='/PortfolioPage'>
             {isLogin ? `${userName}의 포트폴리오` : "포트폴리오"}
           </Link>
         </div>

@@ -1,26 +1,50 @@
-import React, { useState } from "react";
-import Header from "../components/Header";
-import Main from "../components/Main";
-import Footer from "../components/Footer";
-import AllProjects from "./AllProjects";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import isLoginContext from "../contexts/IsLoginContext";
+import "../styles/Home.css";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
-  const [isLogin, setIsLogin] = useState(true);
+const Home = ({ userName, setUserName }) => {
+  const { isLogin, setIsLogin } = useContext(isLoginContext);
+  const navigate = useNavigate();
+
+  const handleSignInOutToggle = () => {
+    setIsLogin((prevIsLogin) => !prevIsLogin);
+  };
+  useEffect(() => {
+    if (isLogin) {
+      setUserName("정재호");
+    } else {
+      setUserName("");
+    }
+  });
+
+  const goToPortfolio = () => {
+    if (isLogin) {
+      navigate("/PortfolioPage");
+    } else {
+      alert("로그인이 필요한 서비스입니다.");
+    }
+  };
+
   return (
-    <Router>
-      <div className='homePage'>
-        <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-        <Routes>
-          <Route path='/' element={<Main isLogin={isLogin} />} />
-          <Route
-            path='/AllProjects'
-            element={<AllProjects isLogin={isLogin} />}
-          />
-        </Routes>
-        <Footer />
+    <div>
+      <div>
+        <div className='animationContainer'>{userName}</div>
+        <div className='buttonContainer'>
+          <div className='signInOutButtonContainer'>
+            <button onClick={handleSignInOutToggle}>
+              {isLogin ? "로그아웃" : "로그인"}
+            </button>
+          </div>
+          <div className='signUpButtonContainer'>
+            <button>회원가입</button>
+          </div>
+          <div className='makePortfolioButtonContainer'>
+            <button onClick={goToPortfolio}> 포트폴리오 작성하기</button>
+          </div>
+        </div>
       </div>
-    </Router>
+    </div>
   );
 };
 

@@ -1,3 +1,36 @@
-.homePage{
-    
+*{
+    box-sizing: border-box;
+}
+
+.animationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.signInOutButtonContainer{
+    column-gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.signUpButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.makePortfolioButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
 }

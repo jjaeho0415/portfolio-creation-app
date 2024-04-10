@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../styles/Title.css";
+import isLoginContext from "../contexts/IsLoginContext";
 
-const Title = ({ isLogin }) => {
+const Title = () => {
+  const { isLogin } = useContext(isLoginContext);
   const [isEditing, setIsEditing] = useState(false);
   const initialTitle = {
     title: "제목을 입력하세요.",

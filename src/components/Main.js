@@ -14,7 +14,7 @@ const Main = ({ isLogin }) => {
         <Introduce isLogin={isLogin} />
       </article>
       <article className='article'>
-        <Project />
+        <Project isLogin={isLogin} />
       </article>
     </div>
   );

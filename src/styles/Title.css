@@ -1,5 +1,5 @@
 .mainContainer{
-    height: 1000px;
+    height: 850px;
 }
 .titleContainer {
     background-image: url("../assets/images/title.jpg");
@@ -7,6 +7,9 @@
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 @keyframes slideDown {
     from {
@@ -20,12 +23,11 @@
     }
 }
 .titleContent {
-    position: absolute;
-    top: 50%;
-    left: 39%;
-    transform: translate(-0%, -50%);
-    justify-content: center;
+    display: flex;
+    align-items: center;
     text-align: center;
+}
+.textContent{
     color: #ffffff;
     animation: slideDown 2s ease forwards;
     opacity: 0;

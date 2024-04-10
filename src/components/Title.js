@@ -24,19 +24,6 @@ const Title = ({ isLogin }) => {
     setIsEditing(false);
     localStorage.setItem("editedText", JSON.stringify(editedText));
   };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const titleContainer = document.querySelector(".titleContainer");
-    if (titleContainer) {
-      titleContainer.style.backgroundPositionY = `${scrollY * 0.15}px`;
-    }
-  };
 
   // 입력된 텍스트를 업데이트하는 함수
   const handleTextChange = (event) => {
@@ -52,47 +39,49 @@ const Title = ({ isLogin }) => {
       <div className='mainContainer'>
         <div className='titleContainer'>
           <div className='titleContent'>
-            {isLogin ? (
-              <>
-                {isEditing ? (
-                  <>
-                    <input
-                      type='text'
-                      className='title'
-                      name='title'
-                      value={editedText.title}
-                      onChange={handleTextChange}
-                    />
-                    <br />
-                    <input
-                      type='text'
-                      name='subTitle'
-                      className='subTitle'
-                      value={editedText.subTitle}
-                      onChange={handleTextChange}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <h1 onClick={handleEdit}>
-                      <strong>{editedText.title}</strong>
-                    </h1>
-                    <br />
-                    <h5 onClick={handleEdit}>{editedText.subTitle}</h5>
-                  </>
-                )}
-              </>
-            ) : (
-              <>
-                <h1>
-                  <strong>{initialTitle.title}</strong>
-                </h1>
-                <br />
-                <h5>{initialTitle.subTitle}</h5>
-              </>
-            )}
+            <div className='textContent'>
+              {isLogin ? (
+                <>
+                  {isEditing ? (
+                    <>
+                      <input
+                        type='text'
+                        className='title'
+                        name='title'
+                        value={editedText.title}
+                        onChange={handleTextChange}
+                      />
+                      <br />
+                      <input
+                        type='text'
+                        name='subTitle'
+                        className='subTitle'
+                        value={editedText.subTitle}
+                        onChange={handleTextChange}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <h1 onClick={handleEdit}>
+                        <strong>{editedText.title}</strong>
+                      </h1>
+                      <br />
+                      <h5 onClick={handleEdit}>{editedText.subTitle}</h5>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <h1>
+                    <strong>{initialTitle.title}</strong>
+                  </h1>
+                  <br />
+                  <h5>{initialTitle.subTitle}</h5>
+                </>
+              )}
 
-            {isEditing ? <button onClick={handleSave}>Save</button> : null}
+              {isEditing ? <button onClick={handleSave}>Save</button> : null}
+            </div>
           </div>
         </div>
       </div>

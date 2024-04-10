@@ -1,9 +1,10 @@
-.IntroduceContainer{
-    padding-left: 30px;
+.introduceContainer{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .profileSection {
-    margin-top: 20px;
+    display: flex;
 }
 
 .title {
@@ -12,13 +13,8 @@
 
 .profileSection {
     display: flex;
+    column-gap: 30px;
 }
-
-.profileImage {
-    margin-right: 40px;
-    padding-right: 30px;  
-}
-
 .profileImage img {
     width: 350px;
     height: 350px;
@@ -26,15 +22,36 @@
 }
 
 .introduceText {
-    flex: 1;
     height: 350px;
     line-height: 1.5;
-    height: 350px;
     overflow-y: auto;
     font-size: 17px;
+    width: 100%;
 }
 
 textarea{
     font-size: 17px;
     line-height: 1.5;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px){
+    .introduceContainer{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .profileSection{
+        flex-direction: column;
+        align-items: center;
+    }
+    .profileImage{
+        justify-content: center;
+        margin-bottom: 20px;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .introduceText{
+        width: 100%;
+        max-width: 800px;
+    }
 }

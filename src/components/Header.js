@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
-import IsLoginContext from "../contexts/IsLoginContext";
 
-const Header = ({ userName, setUserName }) => {
-  console.log("dhkTdma");
-  const [isLogin, setIsLogin] = useContext(IsLoginContext);
+const Header = ({ userName, setUserName, isLogin, setIsLogin }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

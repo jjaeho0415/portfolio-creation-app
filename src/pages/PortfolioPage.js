@@ -3,11 +3,16 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 
-const PortfolioPage = () => {
+const PortfolioPage = ({ userName, setUserName, isLogin, setIsLogin }) => {
   return (
     <>
-      <Header />
-      <Main />
+      <Header
+        userName={userName}
+        setUserName={setUserName}
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+      />
+      <Main isLogin={isLogin} />
       <Footer />
     </>
   );

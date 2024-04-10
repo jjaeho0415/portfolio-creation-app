@@ -4,17 +4,17 @@ import Introduce from "./Introduce";
 import Project from "./Project";
 import "../styles/Main.css";
 
-const Main = () => {
+const Main = ({ isLogin }) => {
   return (
     <div className='mainContainer'>
       <article className='article'>
-        <Title />
+        <Title isLogin={isLogin} />
       </article>
       <article className='article'>
-        <Introduce />
+        <Introduce isLogin={isLogin} />
       </article>
       <article className='article'>
-        <Project />
+        <Project isLogin={isLogin} />
       </article>
     </div>
   );

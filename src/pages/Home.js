@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import isLoginContext from "../contexts/IsLoginContext";
+import React, { useEffect } from "react";
+
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ userName, setUserName }) => {
-  const { isLogin, setIsLogin } = useContext(isLoginContext);
+const Home = ({ userName, setUserName, isLogin, setIsLogin }) => {
   const navigate = useNavigate();
 
   const handleSignInOutToggle = () => {

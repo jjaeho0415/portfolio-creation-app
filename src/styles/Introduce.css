@@ -1,14 +1,8 @@
 .introduceContainer{
+    display: grid;
+    row-gap: 15px;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-.profileSection {
-    display: flex;
-}
-
-.title {
-    margin-bottom: 20px;
 }
 
 .profileSection {
@@ -32,11 +26,19 @@ textarea{
     font-size: 17px;
     line-height: 1.5;
     padding: 0;
+    resize: none;
 }
 
 .saveButtonContainer{
     display: flex;
     justify-content: center;
+}
+
+.saveButtonContainer button{
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
 }
 
 @media screen and (max-width: 1024px){

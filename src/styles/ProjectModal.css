@@ -1,0 +1,100 @@
+.modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.projectLogoImageContainer{
+    width: 100%;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.projectLogoImage{
+    height: 120px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectLogoImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.editButtonContainer{
+    display: flex;
+    column-gap: 15px;
+}
+
+.editButtonContainer button{
+    width: 50px;
+    height: 30px;
+}
+.saveButton{
+    width: 50px;
+    height: 30px;
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    height: 520px;
+    padding: 0;
+}
+
+.textInput {
+    width: 100%;
+    height: 380px;
+    resize: none;
+    padding: 2px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.modalFooter {
+    display: flex;
+}
+
+.textDisplay{
+    height: 380px;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.alertText{
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    color: red;
+}

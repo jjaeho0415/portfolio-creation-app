@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../styles/Introduce.css";
 import noProfileImage from "../assets/images/profile.jpg";
 
-const Introduce = ({ isLogin }) => {
+const Introduce = () => {
   const [profileImage, setProfileImage] = useState(noProfileImage);
   const initialText = `<클릭해서 입력하세요>.\n이름 : \n연락처 : \n짧은 자기소개 : \n해당직무에 필요한 기술 : \n어학성적 등 보유한 자격증 : \n자신이 참여했던 프로젝트 이름(또는 경력/경험) : \n이루고 싶은 목표나 비전 : \n`;
   const [introduceText, setIntroduceText] = useState(
@@ -60,62 +60,43 @@ const Introduce = ({ isLogin }) => {
 
   return (
     <div className='introduceContainer'>
-      <div className='title'>
+      <div className='introduceTitleText'>
         <h1>Introduce</h1>
       </div>
       <div className='profileSection'>
         <div className='profileImage'>
-          {isLogin ? (
-            <>
-              <img
-                src={profileImage}
-                alt='프로필'
-                onClick={handleProfileImageClick}
-              />
-              <input
-                ref={fileInputRef}
-                type='file'
-                onChange={handleImageChange}
-                accept='image/*'
-                style={{ display: "none" }}
-              />
-            </>
-          ) : (
-            <img src={noProfileImage} alt='프로필' />
-          )}
+          <img
+            src={profileImage}
+            alt='프로필'
+            onClick={handleProfileImageClick}
+          />
+          <input
+            ref={fileInputRef}
+            type='file'
+            onChange={handleImageChange}
+            accept='image/*'
+            style={{ display: "none" }}
+          />
         </div>
         <div className='introduceText'>
-          {isLogin ? (
+          {isEdit ? (
             <>
-              {isEdit ? (
-                <>
-                  <textarea
-                    ref={textAreaRef}
-                    value={introduceText}
-                    onChange={handleTextChange}
-                    style={{ width: "100%", height: "91%" }}
-                    rows={13}
-                  ></textarea>
-                  <div className='saveButtonContainer'>
-                    <button className='saveButton' onClick={handleSave}>
-                      저장
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className='introduceText' onClick={handleEditToggle}>
-                  {introduceText.split("\n").map((line, index) => (
-                    <div key={index}>
-                      {line}
-                      <br />
-                    </div>
-                  ))}
-                </div>
-              )}
+              <textarea
+                ref={textAreaRef}
+                value={introduceText}
+                onChange={handleTextChange}
+                style={{ width: "100%", height: "91%" }}
+                rows={12}
+              ></textarea>
+              <div className='saveButtonContainer'>
+                <button className='saveButton' onClick={handleSave}>
+                  저장
+                </button>
+              </div>
             </>
           ) : (
-            <div className='introduceText'>
-              {initialText.split("\n").map((line, index) => (
+            <div className='introduceText' onClick={handleEditToggle}>
+              {introduceText.split("\n").map((line, index) => (
                 <div key={index}>
                   {line}
                   <br />

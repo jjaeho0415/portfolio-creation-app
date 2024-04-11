@@ -1,0 +1,41 @@
+.logoImageBox{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+.logoImageBox img{
+    width: 200px;
+    height: 200px;
+}
+.projectItem{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.projectItemDescription{
+    font-size: 1rem;
+    padding: 10px;
+}
+.projectItemLists{
+    display: grid;
+}
+@media screen and (max-width: 1024px){
+    .projectItem{
+        width: 100%;
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+    .projectItemLists{
+        display: grid;  
+        width: 100%;
+    }
+    .logoImageBox{
+        width: 100%;
+    }
+    .projectItemDescription{
+        width: 100%;
+        
+    }
+}

@@ -1,21 +1,25 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ userName, setUserName, isLogin, setIsLogin }) => {
+const Home = ({ userName }) => {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSignInOutToggle = () => {
-    setIsLogin((prevIsLogin) => !prevIsLogin);
+    const updatedIsLogin = !isLogin;
+    setIsLogin(updatedIsLogin);
+    localStorage.setItem("isLogin", updatedIsLogin.toString());
   };
+
   useEffect(() => {
-    if (isLogin) {
-      setUserName("정재호");
+    const storedIsLogin = localStorage.getItem("isLogin");
+    if (storedIsLogin === "true") {
+      setIsLogin(true);
     } else {
-      setUserName("");
+      setIsLogin(false);
     }
-  });
+  }, []);
 
   const goToPortfolio = () => {
     if (isLogin) {
@@ -28,7 +32,9 @@ const Home = ({ userName, setUserName, isLogin, setIsLogin }) => {
   return (
     <div>
       <div>
-        <div className='animationContainer'>{userName}</div>
+        <div className='animationContainer'>
+          <div>{isLogin ? `${userName}님 안녕하세요!` : "로그인하세요"}</div>
+        </div>
         <div className='buttonContainer'>
           <div className='signInOutButtonContainer'>
             <button onClick={handleSignInOutToggle}>
